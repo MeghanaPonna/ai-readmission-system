@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.env
+dist/
+build/
+
+# ML artifacts (large files — store with DVC or Git LFS)
+ml/artifacts/
+ml/plots/
+ml/data/
+
+# Node
+node_modules/
+frontend/build/
+
+# IDE
+.vscode/
+.idea/
+*.DS_Store
