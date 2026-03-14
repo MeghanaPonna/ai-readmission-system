@@ -8,7 +8,7 @@ dist/
 build/
 
 # ML artifacts (large files — store with DVC or Git LFS)
-ml/artifacts/
+# ml/artifacts/
 ml/plots/
 ml/data/
 
