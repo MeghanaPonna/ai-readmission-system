@@ -1,20 +1,142 @@
 # AI Patient Readmission Prediction System
 
-See full documentation in [`docs/README.md`](docs/README.md).
+An end-to-end **Machine Learning + Full Stack application** that predicts whether a hospital patient will be **readmitted within 30 days after discharge** using clinical data.
 
-## Quick Start
+The system analyzes patient health records and generates a **risk score and recommendation** to help healthcare providers identify high-risk patients early.
 
-```bash
-# 1. Train the model
-cd ml && pip install -r requirements.txt
-python train_model.py
+---
 
-# 2. Start the API
-cd ../backend && pip install -r requirements.txt
-uvicorn main:app --reload --port 8000
+## Key Features
 
-# 3. Start the UI
-cd ../frontend && npm install && npm start
+* Predicts **30-day hospital readmission risk**
+* Machine learning model trained on **100,000+ patient records**
+* **XGBoost model** used for prediction
+* **FastAPI backend** for real-time predictions
+* **React dashboard** for patient data input
+* Risk classification: **Low / Medium / High**
+
+---
+
+## Tech Stack
+
+**Machine Learning**
+
+* Python
+* Pandas
+* Scikit-learn
+* XGBoost
+
+**Backend**
+
+* FastAPI
+* Uvicorn
+* Joblib
+
+**Frontend**
+
+* React
+* JavaScript
+* CSS
+
+---
+
+## Dataset
+
+The model is trained on the **Diabetes 130-US Hospitals Dataset**.
+
+* 101,766 patient encounters
+* 47 clinical features
+* Target variable: **30-day readmission**
+
+Dataset source:
+[https://archive.ics.uci.edu/ml/datasets/diabetes+130-us+hospitals+for+years+1999-2008](https://archive.ics.uci.edu/ml/datasets/diabetes+130-us+hospitals+for+years+1999-2008)
+
+---
+
+## System Architecture
+
+```
+React Frontend
+      ↓
+FastAPI Backend
+      ↓
+Preprocessing Pipeline
+      ↓
+XGBoost Model
+      ↓
+Readmission Risk Prediction
 ```
 
-Open http://localhost:3000
+---
+
+## Project Structure
+
+```
+ai-readmission-system
+│
+├── ml/          # Machine learning pipeline
+├── backend/     # FastAPI backend
+├── frontend/    # React application
+└── README.md
+```
+
+---
+
+## Running the Project
+
+### 1. Train the Model
+
+```
+cd ml
+python train_model.py
+```
+
+### 2. Start Backend API
+
+```
+cd backend
+uvicorn main:app --reload --port 8000
+```
+
+API documentation will be available at:
+
+```
+http://localhost:8000/docs
+```
+
+### 3. Run Frontend
+
+```
+cd frontend
+npm install
+npm start
+```
+
+Open the application in the browser:
+
+```
+http://localhost:3000
+```
+
+---
+
+## Model Performance
+
+Best model: **XGBoost**
+
+* Accuracy: ~82%
+* ROC-AUC: ~0.68
+
+Important predictive features include:
+
+* Previous inpatient visits
+* Emergency visits
+* Length of hospital stay
+* Number of medications
+* Diagnosis type
+
+---
+
+## Disclaimer
+
+This project is intended for **educational and research purposes only** and should not replace professional medical judgment.
